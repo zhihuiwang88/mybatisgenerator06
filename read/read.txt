@@ -1,0 +1,15 @@
+
+
+1. 在这里修改添加数据库信息
+generatorConfig.xml
+2. 启动generatorCode.bat
+3. 把生成的相关文件copy到自己的项目
+4.  此功能只是mybatisgenerator自动生成代码(简洁版)，没有做其它操作。
+
+
+
+
+
+
+
+

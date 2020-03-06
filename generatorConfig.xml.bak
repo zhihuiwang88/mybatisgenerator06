@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<!--
+  <classPathEntry location="db/ojdbc14-10.2.0.1.0.jar" />
+  -->
+  <classPathEntry location="db/mysql-connector-java-5.1.22-bin.jar" />
+  <context id="mysqlTables" targetRuntime="MyBatis3">
+	<commentGenerator>
+		<property name="javaFileEncoding" value="UTF-8"/>
+	</commentGenerator>
+<!--
+	<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+        connectionURL="jdbc:oracle:thin:@//192.168.1.30:1521/orcl"
+        userId="personnelManage"
+        password="personnelManage">
+    </jdbcConnection>
+
+	-->
+<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://192.168.1.30:3306/dcojp"
+        userId="root"
+        password="password01!">
+    </jdbcConnection>
+  <!--
+	<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/dcogp"
+        userId="root"
+        password="000000">
+    </jdbcConnection>-->
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.sinosoft.dcojp.model" targetProject="src">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mybatis"  targetProject="src">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.sinosoft.dcojp.mapper"  targetProject="src">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+	<!--
+	<table schema="" tableName="AUCT_USER">	 
+	     <property name="useActualColumnNames" value="true"/>		
+		 <ignoreColumn column="CREATE_TIME" />	
+	<table schema="" domainObjectName="UserArea" tableName="da_user_area">
+		<generatedKey column="ua_id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+	</table>
+	
+<table schema="" tableName="pub_region" 
+ enableInsert="false" 
+ enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true">
+</table>
+<table schema="" tableName="pub_dictionary_type">
+</table>
+<table schema="" tableName="pub_dictionary">
+</table>
+
+
+<table schema="" tableName="mod_page">
+	<generatedKey column="page_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="mod_page_field">
+	<generatedKey column="fld_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="mod_table">
+	<generatedKey column="tab_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="mod_table_column">
+	<generatedKey column="col_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+
+<table schema="" tableName="adm_user">
+	<generatedKey column="user_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_department">
+	<generatedKey column="dep_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_asset_major">
+	<generatedKey column="major_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_asset_sub">
+	<generatedKey column="sub_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_asset_firm">
+	<generatedKey column="firm_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_asset_model">
+	<generatedKey column="model_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_device">
+	<generatedKey column="dev_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_device_extra">
+</table>
+<table schema="" tableName="adm_device_issue">
+	<generatedKey column="iss_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_employee">
+	<generatedKey column="emp_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_site">
+	<generatedKey column="site_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_site_device">
+</table>
+
+<table schema="" tableName="adm_organization">
+	<generatedKey column="org_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_employee_app">
+</table>
+<table schema="" tableName="adm_employee_attachment">
+	<generatedKey column="att_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_employee_expert">
+</table>
+<table schema="" tableName="adm_employee_leave">
+	<generatedKey column="leave_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_employee_resume">
+	<generatedKey column="resu_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_employee_sign">
+	<generatedKey column="sign_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_maintain_param">
+	<generatedKey column="param_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_maintain_plan">
+	<generatedKey column="plan_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_maintain_plan_assign">
+</table>
+<table schema="" tableName="adm_maintain_plan_device">
+</table>
+<table schema="" tableName="adm_maintain_plan_site">
+</table>
+<table schema="" tableName="adm_maintain_plan_time">
+	<generatedKey column="time_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_problem">
+	<generatedKey column="prob_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_probem_attachment">
+	<generatedKey column="att_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_probem_device">
+</table>
+
+<table schema="" tableName="adm_activity">
+	<generatedKey column="act_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_activity_attachment">
+	<generatedKey column="att_id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_activity_employee">
+</table>
+
+<table schema="" tableName="adm_catalog">
+	<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_catalog_slas">
+	<generatedKey column="slas_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_performance">
+	<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_device">
+	<generatedKey column="dev_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_post_indicator">
+</table>
+
+<table schema="" tableName="adm_indicator">
+	<generatedKey column="indi_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_catalog">
+	<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+</table>
+<table schema="" tableName="adm_catalog_slas">
+	<generatedKey column="slas_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_asset_model">
+	<generatedKey column="model_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_patrol_card">
+	<generatedKey column="card_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_post_patrol_card">
+</table>
+
+<table schema="" tableName="adm_device_config">
+	<generatedKey column="conf_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_device_apply">
+	<generatedKey column="appl_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_device_change">
+	<generatedKey column="change_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_business_log">
+	<generatedKey column="log_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_device_apply">
+	<generatedKey column="appl_id" sqlStatement="mysql" identity="true"/>
+</table>
+
+<table schema="" tableName="adm_device_apply_detail">
+	<generatedKey column="detail_id" sqlStatement="mysql" identity="true"/>
+</table>
+-->
+<table schema="" tableName="ca_monitor_data">
+	<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+</table>
+  </context>
+</generatorConfiguration>
+
